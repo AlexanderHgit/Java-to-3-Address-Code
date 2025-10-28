@@ -94,7 +94,7 @@ public void visit(DeclarationNode n){
     n.type.accept(this);
     print(" ");
     n.id.accept(this);
-    println(" ;");
+    println(";");
 }
 /* public void visit(Declarations n){
     if(n.decls!=null){
@@ -220,6 +220,8 @@ public void visit (DoWhileStatementNode n) {
     n.stmt.accept(this);
     if(!(n.stmt instanceof BlockStatementNode))
         indentDown();
+    
+    //println("");
     printIndent();
     print("while");
       equal_op=false;
@@ -238,7 +240,7 @@ public void visit(ArrayAccessNode n){
 
     n.id.accept(this);
     n.index.accept(this);
-    System.out.println(equal_op);
+    //System.out.println(equal_op);
         if(!equal_op){
 
         TempNode tempNode=new TempNode(++temp);
@@ -400,6 +402,8 @@ System.out.println(stmtOperators.get(stmtOperators.size()-1).toString().equals("
    stmtOperators= new ArrayList<Token>();
    stmtOperands= new ArrayList<Node>(); */
    stmts.add(n);
+   print(";");
+   println("");
 }
 public void visit(BreakStatementNode n){
     GotoNode breaks=new GotoNode(loop_scope);
